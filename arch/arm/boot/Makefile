@@ -59,9 +59,6 @@ $(obj)/xipImage: FORCE
 
 $(obj)/Image: vmlinux FORCE
 	$(call if_changed,objcopy)
-ifeq ($(CONFIG_ARCH_NUC980),y)
-	cp $@   ../image/980image
-endif
 
 $(obj)/compressed/vmlinux: $(obj)/Image FORCE
 	$(Q)$(MAKE) $(build)=$(obj)/compressed $@
